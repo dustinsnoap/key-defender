@@ -1,0 +1,46 @@
+//COLORS
+@color-background: #232323;
+@color-GameBackground: rgba(200,200,0,.25);
+//MIXINS
+.size(@height, @width) {
+    height: @height;
+    width: @width;
+}
+.border(@top, @right, @bottom, @left, @color, @radius: 0) {
+    border-color: @color;
+    border-radius: @radius;
+    border-style: solid;
+    border-width: @top @right @bottom @left;
+}
+.flex-center(@direction: row) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: center;
+    align-items: center;
+}
+//TAGS
+body {
+    background-color: @color-background;
+}
+//CLASSES
+.container {
+    .size(100%, 100%);
+    .flex-center();
+}
+.game {
+    position: relative;
+    // .flex-center();
+    .size(100%, 40vw);
+    display: block;
+    // background-color: green;
+}
+.game > canvas {
+    .size(100%, 100%);
+    position: absolute;
+}
+.keyfender {
+    background-color: @color-GameBackground;
+}
+.overlay {
+    .border(0, 10px, 0, 10px, #fff, 5px);
+}
